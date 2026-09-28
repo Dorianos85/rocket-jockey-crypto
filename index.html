@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0d12" />
+    <meta name="description" content="Strap in. Grapple runners, tow them to extraction, and rule the neon arena. A free Rocket Jockey browser arcade demo." />
+    <title>Rocket Jockey — No brakes. All glory.</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#arena-stage">Skip to arena</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#" aria-label="Rocket Jockey home"><span class="brand-mark" aria-hidden="true">R<span>J</span></span><span class="brand-name">ROCKET<br />JOCKEY</span></a>
+        <nav aria-label="Main navigation"><a href="#arena-stage" class="nav-active">THE ARENA<span class="nav-dot" aria-hidden="true"></span></a><button id="help-button" class="nav-button" type="button">HOW TO PLAY <span aria-hidden="true">↗</span></button></nav>
+        <button id="connect-wallet" class="wallet-button" type="button"><span class="wallet-icon" aria-hidden="true">▱</span> Connect wallet <span aria-hidden="true">↗</span></button>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-heading"><p class="eyebrow"><span class="status-light" aria-hidden="true"></span> INDEPENDENT PILOTS. UNREASONABLE SPEED.</p><h1 id="hero-title">NO BRAKES.<br /><span>ALL GLORY.</span></h1></div>
+          <div class="hero-aside"><span class="edition">ARCADE SERIES <span>001 / SOL</span></span><p>One rocket. One grappling hook.<br />Ninety seconds to own the arena.</p><span class="hero-tag">BUILT FOR THE CHASE <span aria-hidden="true">↙</span></span></div>
+          <span class="hero-watermark" aria-hidden="true">RJ</span>
+        </section>
+
+        <section class="game-layout" aria-label="Rocket Jockey arcade game">
+          <aside class="left-rail" aria-label="Match and pilot information">
+            <section class="panel mission-panel"><p class="section-label"><span>01 / THE MISSION</span><span aria-hidden="true">↗</span></p><h2>HOOK.<br />HAUL.<br /><span>REPEAT.</span></h2><p class="muted-copy">Grapple a runner. Tow them to the center ring. Rack up your score.</p><div class="match-format"><span class="tiny-label">MATCH FORMAT</span><strong>SOLO EXTRACTION</strong><span class="format-meta"><span class="small-dot" aria-hidden="true"></span> Local arena · AI rivals</span></div></section>
+            <section class="panel pilot-panel"><p class="section-label"><span>02 / YOUR RIDE</span><span aria-hidden="true">+</span></p><div class="rocket-illustration" aria-hidden="true"><div class="rocket-trail"></div><div class="rocket-wing wing-top"></div><div class="rocket-body"><span></span></div><div class="rocket-wing wing-bottom"></div></div><div class="ride-title"><h3>THE MISFIT</h3><span>MK.01</span></div><p class="ride-description">Light chassis. Heavy attitude.</p><div class="loadout-row"><span>Thruster</span><strong>ION DRIVE</strong></div><div class="loadout-row"><span>Utility</span><strong>MAG GRAPPLE</strong></div><div class="pilot-id"><span class="pilot-avatar" aria-hidden="true">✦</span><div><strong>ROOKIE PILOT</strong><span id="wallet-status">Playing as guest</span></div></div></section>
+          </aside>
+
+          <div class="arena-column">
+            <section id="arena-stage" class="arena-stage" aria-label="Playable arena">
+              <div class="arena-topbar"><div><span class="status-light" aria-hidden="true"></span><strong>THE NEON PIT</strong><span class="arena-mode">EXTRACTION / 90 SEC</span></div><span class="arena-number">ARENA_01</span></div>
+              <div class="arena-canvas-wrap"><canvas id="arena" width="1000" height="680" tabindex="0" aria-label="Rocket Jockey arena. Use W or Up to thrust, A and D or arrow keys to steer, Shift while thrusting to boost, and Space to grapple a runner. Tow runners to the center extraction ring.">Your browser needs canvas support to play Rocket Jockey.</canvas><div class="arena-corner corner-tl" aria-hidden="true"></div><div class="arena-corner corner-tr" aria-hidden="true"></div><div class="arena-corner corner-bl" aria-hidden="true"></div><div class="arena-corner corner-br" aria-hidden="true"></div><div id="game-overlay" class="game-overlay"><div class="overlay-badge"><span aria-hidden="true">✦</span> PILOT, YOU'RE UP.</div><h2 id="overlay-title">MAKE AN<br /><span>ENTRANCE.</span></h2><p id="overlay-copy">Fire your thrusters. Hook a runner.<br />Bring them home before the clock runs out.</p><button id="start-button" class="primary-button" type="button">ENTER THE ARENA <span aria-hidden="true">↗</span></button><span class="overlay-note">FREE TO PLAY · NO WALLET REQUIRED</span></div></div>
+              <div class="arena-bottom-bar"><span><span class="small-dot" aria-hidden="true"></span> LOCAL SOLO SESSION</span><div class="arena-actions"><button id="sound-button" type="button" aria-label="Toggle game sound">SOUND OFF</button><span aria-hidden="true">/</span><button id="pause-button" type="button">PAUSE</button><span aria-hidden="true">/</span><button id="restart-button" type="button">RESTART <span aria-hidden="true">↻</span></button></div></div>
+            </section>
+            <div class="controls-strip" role="group" aria-label="Keyboard controls"><span><kbd>W A S D</kbd> PILOT</span><span><kbd>SHIFT</kbd> BOOST</span><span><kbd>SPACE</kbd> GRAPPLE / RELEASE</span><span class="controls-extra"><kbd>P</kbd> PAUSE</span></div>
+            <div class="touch-controls" role="group" aria-label="Touch controls"><div class="touch-steering"><button type="button" data-control="left" aria-label="Steer left">↶</button><button type="button" data-control="thrust" aria-label="Thrust forward">↑</button><button type="button" data-control="right" aria-label="Steer right">↷</button><button type="button" data-control="brake" aria-label="Brake">BRAKE</button></div><div class="touch-abilities"><button type="button" data-control="boost" aria-label="Boost">BOOST</button><button type="button" data-control="grapple" aria-label="Grapple or release runner">HOOK</button></div></div>
+            <div class="arena-tip"><span class="tip-icon" aria-hidden="true">↳</span><p><strong>A LITTLE CHAOS GOES A LONG WAY.</strong> Get close to a runner before firing your grapple. Keep your tow line tight.</p></div>
+          </div>
+
+          <aside class="right-rail" aria-label="Game statistics">
+            <section class="panel telemetry-panel"><p class="section-label"><span>03 / TELEMETRY</span><span class="small-dot" aria-hidden="true"></span></p><div class="score-block"><span class="tiny-label">YOUR SCORE</span><strong id="score-value">0</strong><span class="score-unit">POINTS / NO LIMITS</span></div><div class="time-row"><span class="tiny-label">TIME LEFT</span><strong><span id="time-value">1:30</span></strong></div><div class="telemetry-row"><span><i class="stat-symbol hull-symbol" aria-hidden="true">◇</i> HULL</span><strong><span id="health-value">100%</span></strong></div><div class="telemetry-row"><span><i class="stat-symbol energy-symbol" aria-hidden="true">ϟ</i> BOOST</span><strong><span id="energy-value">100%</span></strong></div><div class="delivery-row"><span>SUCCESSFUL<br />EXTRACTIONS</span><strong id="deliveries-value">0</strong></div></section>
+            <section class="panel record-panel"><p class="section-label"><span>PERSONAL BEST</span><span aria-hidden="true">✦</span></p><strong id="best-value">0</strong><div class="record-meta"><span>ROUNDS PLAYED</span><span id="rounds-value">0</span></div></section>
+            <section class="credits-panel"><div><span class="credit-icon" aria-hidden="true">◈</span><span class="tiny-label">DEMO CREDITS</span><strong id="rewards-value">0</strong></div><p>Earned in the arena. No cash value.</p></section>
+          </aside>
+        </section>
+
+        <section class="below-arena"><div class="session-note"><span class="section-label">YOUR NEXT OBSESSION, IN PROTOTYPE.</span><p>An arcade experiment inspired by the thrill of rocket-powered chaos. Play locally, chase your personal best, come back faster.</p></div><div class="leaderboard-panel"><div class="leaderboard-heading"><h2>RECENT RUNS</h2><span>STORED ON THIS DEVICE</span></div><ol id="leaderboard-list" class="leaderboard-list"><li class="leaderboard-empty">Your first run starts a new story.</li></ol></div></section>
+      </main>
+
+      <footer class="site-footer"><span class="footer-brand">ROCKET JOCKEY <span>© 2026</span></span><p>Browser arcade demo · Optional Solana wallet · No transactions</p><span class="footer-signoff">STAY RECKLESS. <span aria-hidden="true">↗</span></span></footer>
+    </div>
+
+    <dialog id="help-dialog" class="game-dialog" aria-labelledby="help-title"><button id="close-help" class="dialog-close" type="button" aria-label="Close instructions">×</button><p class="eyebrow">YOUR FLIGHT MANUAL</p><h2 id="help-title">A CRASH COURSE.</h2><p>You have <strong>90 seconds</strong>. Grapple runners and tow them into the glowing center extraction ring to score. Avoid rival rockets and collisions, watch your hull, and manage your boost energy.</p><dl class="help-controls"><div><dt><kbd>W / ↑</kbd></dt><dd>Thrust forward</dd></div><div><dt><kbd>S / ↓</kbd></dt><dd>Brake</dd></div><div><dt><kbd>A D / ← →</kbd></dt><dd>Steer left / right</dd></div><div><dt><kbd>SHIFT</kbd></dt><dd>Boost while thrusting (W / ↑)</dd></div><div><dt><kbd>SPACE</kbd></dt><dd>Grapple nearest runner / release</dd></div><div><dt><kbd>P / ESC</kbd></dt><dd>Pause / resume</dd></div></dl><p class="dialog-note">On touchscreens, use the controls beneath the arena. Demo credits have no cash value. A wallet is optional and this demo never requests a transaction.</p></dialog>
+    <dialog id="result-dialog" class="game-dialog result-dialog" aria-labelledby="result-title"><button id="close-result" class="dialog-close" type="button" aria-label="Close round results">×</button><p class="eyebrow">THE DUST HAS SETTLED</p><h2 id="result-title">WHAT A RIDE.</h2><span class="tiny-label">FINAL SCORE</span><strong id="result-score" class="result-score">0</strong><div class="result-stat-grid"><div><span>EXTRACTIONS</span><strong id="result-deliveries">0</strong></div><div><span>DEMO CREDITS EARNED</span><strong id="result-reward">0</strong></div></div><button id="play-again" class="primary-button" type="button">ONE MORE ROUND <span aria-hidden="true">↗</span></button><p class="dialog-note">Demo credits · no cash value</p></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
