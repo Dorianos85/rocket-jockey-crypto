@@ -53,7 +53,7 @@ After signing in, enable **Ranked run** before launching. The server issues a ru
 
 The shared leaderboard lists up to 50 pilots using each pilot's best verified run. Runs expire after 20 minutes, and the current start limit is 20 ranked runs per account per hour. A completed run can be verified only once. Guest practice remains local and can continue when ranking is unavailable.
 
-See [ranking setup](docs/ranking-setup.md) for provider settings, redirect URLs, schema and deployment. Browser configuration in `src/config.js` contains only the public project URL and publishable key. Service-role and Google OAuth secrets belong in the backend/provider settings.
+See [ranking setup](docs/ranking-setup.md) for provider settings, redirect URLs, schema and deployment, or the [Google OAuth setup guide in Polish](docs/google-setup-pl.md) for the remaining Google configuration. Browser configuration in `src/config.js` contains only the public project URL and publishable key. Service-role and Google OAuth secrets belong in the backend/provider settings.
 
 Replay verification rejects invented scores and impossible simulation results; it does not prove that a human supplied the inputs. This release has no financial prizes, token payouts, on-chain game actions or multiplayer networking.
 

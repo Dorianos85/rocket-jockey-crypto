@@ -28,7 +28,10 @@ Confirmed against the current 3D build:
 - The generated standalone HTML loaded through a `file://` URL with the browser in offline mode. Reload and launch succeeded and the round timer advanced; the artifact contained no module script elements and requested no remote resources. This confirms offline guest play, not online account or ranking support for local-file origins.
 - The profile dialog handled missing Phantom with an actionable installation/in-app-browser message. Google sign-in was visibly disabled with “Google · coming soon” while credentials are unavailable.
 
-Responsive/touch checks are still being completed. The prior release's 2D accessibility results are not counted as a fresh audit of this 3D release.
+- Mobile emulation at 390 × 844 showed no horizontal overflow (document width 390px), and all six touch controls were visible. Pointer-down on thrust set the real input and pressed style; pointer-up cleared both. The round was paused during this input-state check to prevent timing-related deaths. This was browser emulation, not a physical multi-touch device.
+- Final browser error checks were empty for both the hosted preview and standalone offline build. A rebuilt offline artifact reloaded with networking disabled without remaining on its loading message.
+
+The prior release's 2D accessibility results are not counted as a fresh audit of this 3D release.
 
 ## Deployed backend smoke checks
 
