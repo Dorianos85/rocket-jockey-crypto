@@ -186,5 +186,6 @@ export function getSnapshot(state) {
     timeLeft: state.timeLeft, deliveries: state.deliveries, combo: state.combo,
     status: state.status, speed: Math.round(Math.hypot(state.player.vx, state.player.vy)),
     tethered: state.tether !== null,
+    canGrapple: state.npcs.some(npc => distance(npc, state.player) <= 165),
   };
 }

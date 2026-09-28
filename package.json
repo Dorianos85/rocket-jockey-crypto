@@ -1,15 +1,25 @@
 {
   "name": "rocket-jockey-crypto",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Neon rocket-sled arena with optional Solana wallet connection and demo credits",
-  "engines": { "node": ">=22" },
+  "description": "3D rocket-riding arena with Phantom and Google sign-in and replay-verified global ranking",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "node scripts/server.js",
     "start": "node scripts/server.js",
     "build": "node scripts/build.js",
     "test": "node --test",
-    "check": "node scripts/check.js"
+    "check": "node scripts/check.js",
+    "share": "node scripts/share.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.117.2",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
   }
 }

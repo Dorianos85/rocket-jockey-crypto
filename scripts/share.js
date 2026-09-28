@@ -1,0 +1,18 @@
+import { build } from 'esbuild';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { prepareVendor } from './vendor.js';
+await prepareVendor();
+const root = new URL('../', import.meta.url);
+const output = new URL('artifacts/telegram-3d/', root);
+await mkdir(output, { recursive: true });
+const result = await build({entryPoints:[fileURLToPath(new URL('src/app.js',root))], bundle:true, format:'iife', platform:'browser', target:'es2022', minify:true, write:false, legalComments:'inline'});
+const css = await readFile(new URL('src/styles.css',root),'utf8');
+const svg = await readFile(new URL('favicon.svg',root),'utf8');
+let html = await readFile(new URL('index.html',root),'utf8');
+html = html.replace('<link rel="stylesheet" href="./src/styles.css" />',()=>`<style>${css}</style>`);
+html = html.replace('href="./favicon.svg"',()=>`href="data:image/svg+xml,${encodeURIComponent(svg)}"`);
+html = html.replace('<script type="module" src="./src/app.js"></script>',()=>`<script>${result.outputFiles[0].text.replace(/<\/script/gi,'<\\/script')}</script>`);
+await writeFile(new URL('Rocket-Jockey-3D.html',output),html);
+await writeFile(new URL('START-TUTAJ.txt',output),'ROCKET JOCKEY 3D\n\nOtwórz Rocket-Jockey-3D.html w przeglądarce na komputerze (Chrome / Edge / Firefox). Wymagany WebGL 2, zwykle włączony domyślnie.\n\nW — gaz; A/D — skręt; S — hamulec; Shift+W — boost; Spacja — złapanie lub puszczenie NPC; P — pauza. Holuj NPC do turkusowego środka areny.\n\nTo wersja offline do oceny widoku 3D i rozgrywki. Ranking i logowanie Phantom/Google wymagają wersji online oraz włączonych dostawców logowania. Punkty nie mają wartości pieniężnej.\n');
+console.log('Shareable offline 3D preview ready in artifacts/telegram-3d/');

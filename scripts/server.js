@@ -34,9 +34,12 @@ export function createStaticServer(root = projectRoot) {
   });
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  const { prepareVendor } = await import('./vendor.js');
+  await prepareVendor();
   const port = Number(process.env.PORT || 4173);
   const host = process.env.HOST || '127.0.0.1';
   const server = createStaticServer();
   server.on('error', error => { console.error(error.message); process.exitCode = 1; });
-  server.listen(port, host, () => console.log(`Rocket Jockey ready at http://${host}:${port}`));
+  const displayHost = host === '127.0.0.1' ? 'localhost' : host;
+  server.listen(port, host, () => console.log(`Rocket Jockey ready at http://${displayHost}:${port}`));
 }
